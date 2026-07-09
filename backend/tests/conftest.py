@@ -12,7 +12,6 @@ from app.domain.interfaces.s3_client import IS3Client
 from app.infrastructure.persistence.models.base import Base
 from app.infrastructure.di.repositories import RepositoryProvider
 from app.infrastructure.di.use_cases import UseCaseProvider
-from app.main import app as main_app
 
 # SQLite In-memory Database for testing
 TEST_DATABASE_URL = "sqlite+aiosqlite:///:memory:"
@@ -38,10 +37,15 @@ class TestClientProvider(Provider):
         class MockS3Client:
             def upload_fileobj(self, file_obj, bucket, key):
                 pass
+
             def get_object_url(self, bucket, key):
                 return f"http://mock-s3/{bucket}/{key}"
-            def generate_presigned_upload_url(self, bucket, key, content_type, expires_in=3600):
+
+            def generate_presigned_upload_url(
+                self, bucket, key, content_type, expires_in=3600
+            ):
                 return f"http://mock-s3/{bucket}/{key}?presigned=true"
+
         return MockS3Client()
 
 

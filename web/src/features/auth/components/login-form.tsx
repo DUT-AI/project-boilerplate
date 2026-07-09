@@ -25,11 +25,16 @@ export function LoginForm() {
   return (
     <Card className="w-full max-w-md p-6">
       <h1 className="text-2xl font-semibold text-slate-950">Sign in</h1>
-      <p className="mt-2 text-sm text-slate-600">Use this placeholder form to wire real auth later.</p>
+      <p className="mt-2 text-sm text-slate-600">
+        Use this placeholder form to wire real auth later.
+      </p>
       <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
         <label className="block space-y-2">
           <span className="text-sm font-medium text-slate-700">Email</span>
-          <Input value={email} onChange={(event) => setEmail(event.target.value)} />
+          <Input
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
         </label>
         <label className="block space-y-2">
           <span className="text-sm font-medium text-slate-700">Password</span>

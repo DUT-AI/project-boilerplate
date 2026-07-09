@@ -46,10 +46,7 @@ def setup_exception_handlers(app: FastAPI):
     async def validation_exception_handler(
         request: Request, exc: RequestValidationError
     ):
-        logger.error(
-            f"Validation Error: {exc.errors()} | "
-            f"Path: {request.url.path}"
-        )
+        logger.error(f"Validation Error: {exc.errors()} | Path: {request.url.path}")
         return JSONResponse(
             status_code=400,
             content={

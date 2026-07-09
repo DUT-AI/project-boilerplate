@@ -15,7 +15,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cn("h-full antialiased")} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={cn("h-full antialiased")}
+      suppressHydrationWarning
+    >
       <body className="min-h-full" suppressHydrationWarning>
         <NextTopLoader color="#2563eb" height={3} showSpinner={false} />
         <Providers>{children}</Providers>

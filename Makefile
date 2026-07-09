@@ -1,4 +1,4 @@
-.PHONY: help dev-api migrate create-migration test
+.PHONY: help dev-api migrate create-migration test install-hooks lint
 
 help:
 	@echo "Available commands:"
@@ -6,6 +6,8 @@ help:
 	@echo "  make migrate        - Run all database migrations (locally using uv)"
 	@echo "  make create-migration DESC=\"msg\" - Create a new migration revision (locally)"
 	@echo "  make test           - Run backend test suite (locally)"
+	@echo "  make install-hooks  - Install git pre-commit hooks"
+	@echo "  make lint           - Run all formatting, linting, and tests (same as pre-commit)"
 
 dev-api:
 	cd ./backend && uv run uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
@@ -19,3 +21,12 @@ create-migration:
 
 test:
 	cd ./backend && uv run pytest
+
+install-hooks:
+	mkdir -p .git/hooks
+	cp .githooks/pre-commit .git/hooks/pre-commit
+	chmod +x .git/hooks/pre-commit
+	@echo "Git pre-commit hooks installed successfully!"
+
+lint:
+	./.githooks/pre-commit

@@ -25,11 +25,16 @@ async def get_current_user(
             access_token = auth_header.split(" ")[1]
 
     if not access_token:
-        raise HTTPException(status_code=401, detail="Chưa xác thực: Không tìm thấy token")
+        raise HTTPException(
+            status_code=401, detail="Chưa xác thực: Không tìm thấy token"
+        )
 
     payload = decode_access_token(access_token)
     if not payload:
-        raise HTTPException(status_code=401, detail="Chưa xác thực: Phiên làm việc đã hết hạn hoặc không hợp lệ")
+        raise HTTPException(
+            status_code=401,
+            detail="Chưa xác thực: Phiên làm việc đã hết hạn hoặc không hợp lệ",
+        )
 
     uid = payload.get("user_id")
     role = payload.get("role")
@@ -47,12 +52,16 @@ async def get_current_user(
 
 def require_roles(*allowed_roles: str):
     """Dependency factory to restrict access to specific user roles."""
+
     async def dependency(
-        user: Annotated[UserContext, Depends(get_current_user)]
+        user: Annotated[UserContext, Depends(get_current_user)],
     ) -> UserContext:
         if user.role not in allowed_roles:
-            raise HTTPException(status_code=403, detail="Không có quyền truy cập chức năng này")
+            raise HTTPException(
+                status_code=403, detail="Không có quyền truy cập chức năng này"
+            )
         return user
+
     return dependency
 
 

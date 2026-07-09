@@ -13,13 +13,17 @@ class UploadFileUseCase:
     def __init__(self, s3_client: IS3Client) -> None:
         self._s3_client = s3_client
 
-    async def execute(self, file_content: bytes, filename: str, content_type: str) -> UploadOut:
+    async def execute(
+        self, file_content: bytes, filename: str, content_type: str
+    ) -> UploadOut:
         if (
             not settings.s3_access_key
             or not settings.s3_secret_key
             or not settings.s3_endpoint
         ):
-            raise HTTPException(status_code=503, detail="S3/MinIO Storage service is not configured")
+            raise HTTPException(
+                status_code=503, detail="S3/MinIO Storage service is not configured"
+            )
 
         # Generate a unique key
         ext = filename.split(".")[-1] if "." in filename else "bin"

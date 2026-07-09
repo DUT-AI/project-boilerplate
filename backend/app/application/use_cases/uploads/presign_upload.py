@@ -18,7 +18,9 @@ class PresignUploadUseCase:
             or not settings.s3_secret_key
             or not settings.s3_endpoint
         ):
-            raise HTTPException(status_code=503, detail="S3/MinIO Storage service is not configured")
+            raise HTTPException(
+                status_code=503, detail="S3/MinIO Storage service is not configured"
+            )
 
         safe_key = key.strip("/") or f"uploads/{uuid4()}"
 
@@ -28,9 +30,7 @@ class PresignUploadUseCase:
             content_type=content_type,
             expires_in=3600,
         )
-        public_url = self._s3_client.get_object_url(
-            settings.s3_bucket_name, safe_key
-        )
+        public_url = self._s3_client.get_object_url(settings.s3_bucket_name, safe_key)
 
         return UploadOut(
             presigned_url=url,

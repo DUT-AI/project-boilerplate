@@ -1,7 +1,12 @@
 from dishka.integrations.fastapi import FromDishka, inject
 from fastapi import APIRouter, Response, status
 
-from app.application.dtos.user import UserRegisterInput, UserLoginInput, UserOut, TokenOut
+from app.application.dtos.user import (
+    UserRegisterInput,
+    UserLoginInput,
+    UserOut,
+    TokenOut,
+)
 from app.application.use_cases.auth.register import RegisterUseCase
 from app.application.use_cases.auth.login import LoginUseCase
 from app.config import settings

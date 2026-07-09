@@ -11,8 +11,6 @@ def hash_password(password: str) -> str:
 def verify_password(password: str, hashed_password: str) -> bool:
     """Verifies a plain text password against its bcrypt hash."""
     try:
-        return bcrypt.checkpw(
-            password.encode("utf-8"), hashed_password.encode("utf-8")
-        )
+        return bcrypt.checkpw(password.encode("utf-8"), hashed_password.encode("utf-8"))
     except Exception:
         return False

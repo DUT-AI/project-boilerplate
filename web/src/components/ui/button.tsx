@@ -8,19 +8,23 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-blue-600 text-white hover:bg-blue-700 focus-visible:outline-blue-600",
-        secondary: "bg-slate-100 text-slate-900 hover:bg-slate-200 focus-visible:outline-slate-400",
-        ghost: "text-slate-700 hover:bg-slate-100 focus-visible:outline-slate-400",
+        primary:
+          "bg-blue-600 text-white hover:bg-blue-700 focus-visible:outline-blue-600",
+        secondary:
+          "bg-slate-100 text-slate-900 hover:bg-slate-200 focus-visible:outline-slate-400",
+        ghost:
+          "text-slate-700 hover:bg-slate-100 focus-visible:outline-slate-400",
       },
     },
     defaultVariants: {
       variant: "primary",
     },
-  },
+  }
 );
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
@@ -36,7 +40,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       />
     );
-  },
+  }
 );
 
 Button.displayName = "Button";
