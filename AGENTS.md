@@ -31,6 +31,7 @@ request -> .agent/rules/GEMINI.md -> select agent -> read agent skills -> apply 
 ## Agent Selection
 
 - Frontend implementation: `frontend-specialist`
+- Backend implementation: `backend-specialist`
 - UI/UX and product screens: `ui-ux-designer`
 - Debugging and fixes: `debugger`
 - Validation and final checks: `test-engineer`
@@ -38,6 +39,7 @@ request -> .agent/rules/GEMINI.md -> select agent -> read agent skills -> apply 
 ## Skill Selection
 
 - Frontend implementation: `frontend-development`, `web-frameworks`
+- Backend implementation: `backend-development`
 - UI/UX and product screens: `design-taste-frontend`, `frontend-design`, `ui-ux-pro-max`, `web-design-guidelines`
 - Styling systems: `ui-styling`, `design-system`, `brand`
 - Visual assets: `assets-organizing`, `banner-design`, `logo-design`, `youtube-thumbnail-design`

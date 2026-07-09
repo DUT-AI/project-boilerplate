@@ -23,6 +23,7 @@ Before frontend, UI, styling, design, browser debugging, testing, or fix work:
 | Task | Agent |
 | --- | --- |
 | Frontend implementation, React, Next.js, components | `.agent/agents/frontend-specialist.md` |
+| Backend implementation, Python, FastAPI, DDD | `.agent/agents/backend-specialist.md` |
 | UI/UX design, visual direction, design systems | `.agent/agents/ui-ux-designer.md` |
 | Bugs, browser issues, hydration, broken UI behavior | `.agent/agents/debugger.md` |
 | Validation, tests, final checks, UI regression checks | `.agent/agents/test-engineer.md` |
@@ -32,6 +33,7 @@ Before frontend, UI, styling, design, browser debugging, testing, or fix work:
 | Task | Read |
 | --- | --- |
 | Frontend implementation | `.agent/skills/frontend-development/SKILL.md` |
+| Backend implementation | `.agent/skills/backend-development/SKILL.md` |
 | Next.js, React app structure, monorepo setup | `.agent/skills/web-frameworks/SKILL.md` |
 | UI/UX, product screens, layouts | `.agent/skills/frontend-design/SKILL.md` |
 | Landing pages, portfolios, redesigns, anti-generic frontend taste | `.agent/skills/design-taste-frontend/SKILL.md` |
